@@ -1,4 +1,4 @@
-# DesafioAPI
+# Projeto API de Super-Heróis
 
 Projeto de seleção para a [App Masters](https://appmasters.io/en/)
 
