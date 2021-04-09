@@ -5,7 +5,9 @@ import Hero from '@route/Hero'
 config();
 const app = express();
 
-
+app.get('/', (req, res) => {
+    res.status(200).send('Bem Vindo ao Projeto API (Super-heróis)')
+})
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
