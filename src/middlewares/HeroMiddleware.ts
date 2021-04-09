@@ -14,7 +14,7 @@ export const searchHeroes = async (req: Request, res: Response) => {
         cache.set('heroes', heroes);
     }
     let herosSearch = new Array<Hero>()
-    if (req.headers['case-sensitive']) {
+    if (req.headers['case-sensitive']?.includes('true')) {
         herosSearch = caseSensitive(cache.get('heroes')!, q!)
     } else {
         herosSearch = caseInsensitive(cache.get('heroes')!, q!);
@@ -81,7 +81,7 @@ const caseInsensitive = (heros: Array<Hero>, q: string) => {
             return hero;
         }
         if (hero.appearance.weight) {
-            const weight = hero.appearance.weight.filter(w => {if (w.toUpperCase().includes(q!.toUpperCase())) return w;});
+            const weight = hero.appearance.weight.filter(w => { if (w.toUpperCase().includes(q!.toUpperCase())) return w; });
             if (weight.length) {
                 return hero;
             }
